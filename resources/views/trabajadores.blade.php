@@ -40,7 +40,7 @@ function cargarDatos(id){
     let contentDiv = document.getElementById('usuarios');
 
 
-    fetch(`http://0.0.0.0/api/trabajadores/${id}`)
+    fetch(`http://127.0.0.1/api/trabajadores/${id}`)
     .then(response => response.json())
         .then(data => {
             if (!data || data.length === 0) {
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cuadros.forEach(cuadro => {
         cuadro.addEventListener("click", function () {
 
-            fetch(`http://0.0.0.0/api/trabajadores/buscar/${cuadro.id}`)
+            fetch(`http://127.0.0.1/api/trabajadores/buscar/${cuadro.id}`)
             .then(response => response.json()
                       .then(data => {
                           if (!data || data.length === 0){

@@ -37,7 +37,7 @@ class OrdenController extends Controller
             'fecha_fin' => 'nullable|date|after_or_equal:fecha_inicio',
             'tarea' => 'nullable|string|max:255',
             'jefecampo_id' => 'nullable|integer|exists:users,id',
-            'aplicador_id' => 'nullable|integer|exists:users,id',
+            'aplicador_id1' => 'nullable|integer|exists:users,id',
             'parcela_id' => 'nullable|integer|exists:parcelas,id',
             'id_tratamiento' => 'nullable|integer|exists:tratamientos,id',
             'id_maquina' => 'nullable|integer|exists:maquinas,id',
@@ -132,7 +132,7 @@ class OrdenController extends Controller
     {
 
 
-    $ordenesPendientes = Orden::where('estado', 'pendiente')->with('parcela')->get();
+    $ordenesPendientes = Orden::where('estado', 'pendiente')->with('parcela')->with('aplicadores')->get();
     return response()->json($ordenesPendientes)
     ->header("Access-Control-Allow-Origin", "*")
     ->header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
@@ -144,7 +144,7 @@ class OrdenController extends Controller
     }
 public function ordenesCurso()
     {
-     $ordenesCurso = Orden::where('estado', 'en curso')->with('parcela')->get();
+     $ordenesCurso = Orden::where('estado', 'en curso')->with('parcela')->with('aplicadores')->get();
     return response()->json($ordenesCurso)
     ->header("Access-Control-Allow-Origin", "*")
     ->header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
@@ -155,7 +155,7 @@ public function ordenesCurso()
 //pasado
 public function ordenesPausa()
     {
-     $ordenesPausa = Orden::where('estado', 'pausada')->with('parcela')->get();
+     $ordenesPausa = Orden::where('estado', 'pausada')->with('parcela')->with('aplicadores')->get();
     return response()->json($ordenesPausa)
     ->header("Access-Control-Allow-Origin", "*")
     ->header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
@@ -177,7 +177,7 @@ public function ordenesPausa()
 
 public function ordenesTerminadas()
     {
-     $ordenesTerminada = Orden::where('estado', 'completada')->with('parcela')->get();
+     $ordenesTerminada = Orden::where('estado', 'completada')->with('parcela')->with('aplicadores')->get();
     return response()->json($ordenesTerminada)
     ->header("Access-Control-Allow-Origin", "*")
     ->header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")

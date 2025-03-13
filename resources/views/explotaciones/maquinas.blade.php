@@ -49,7 +49,7 @@ function filtrarMaquinasPorExplotacion(id) {
 
 async function cargarMaquina(id) {
     try {
-        const response = await fetch(`http://0.0.0.0/api/maquinas/explotacion/${id}`);
+        const response = await fetch(`http://127.0.0.1/api/maquinas/explotacion/${id}`);
         const data = await response.json();
         if (data.error) {
             alert("No hay datos");
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cuadros.forEach(cuadro => {
         cuadro.addEventListener("click", async function () {
             try {
-                const response = await fetch(`http://0.0.0.0/api/maquinas/buscar/${cuadro.id}`);
+                const response = await fetch(`http://127.0.0.1/api/maquinas/buscar/${cuadro.id}`);
                 const data = await response.json();
 
                 if (!data) {
