@@ -71,10 +71,9 @@ Route::get('/ordenesCurso', [OrdenController::class, 'ordenesCurso'])->name('ord
 
 Route::get('/ordenesPausadas', [OrdenController::class, 'ordenesPausa'])->name('ordenesPausa');
 
-
-
 Route::get('/ordenesTerminadas', [OrdenController::class, 'ordenesTerminadas'])->name('ordenesTerminadas');
 
+Route::get('/ordenesTodas', [OrdenController::class, 'ordenesTodas'])->name('ordenesTodas');
 
 Route::get('/orden/{id}', [OrdenController::class, 'ordenById'])->name('ordenById');
 

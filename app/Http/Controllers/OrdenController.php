@@ -184,7 +184,16 @@ public function ordenesTerminadas()
     ->header("Access-Control-Allow-Headers", "Content-Type, Authorization");
     }
 
-    //cancelada
+    //todas las ordenes
+
+public function ordenesTodas(){
+    $ordenesTodas= Orden::with('parcela','aplicadores')->get();
+    return response()->json($ordenesTodas)
+    ->header("Access-Control-Allow-Origin", "*")
+    ->header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+    ->header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+}
 
 
 
