@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('fecha_fin')->nullable();
             $table->string('tarea', 255);
             $table->foreignId('jefecampo_id')->nullable()->constrained('users')->onDelete('cascade');
-            $table->foreignId('aplicador_id1')->constrained('users')->onDelete('cascade');
+            $table->foreignId('aplicador_id1')->nullable()->constrained('users')->onDelete('cascade');
             $table->foreignId('aplicador_id2')->nullable()->constrained('users')->onDelete('cascade');
             $table->foreignId('aplicador_id3')->nullable()->constrained('users')->onDelete('cascade');
             $table->foreignId('aplicador_id4')->nullable()->constrained('users')->onDelete('cascade');
